@@ -108,11 +108,11 @@ const next = () => {
     setTimeout(next, 800);
     counter = (counter + 1) % phrases.length;
 
-    if (phrases[counter] === 'INFERIX 24') {
+    if (phrases[counter] == "INFERIX 24") {
       setTimeout(() => {
         // Dynamically build the path for GitHub Pages deployment
         const basePath = window.location.pathname.replace(/\/[^\/]*$/, '');
-        window.location.href = `/home.htm`;
+        window.location.href = 'home.htm';
       }, 2000); // Adjust the delay (in milliseconds) before redirection
     }
   });
