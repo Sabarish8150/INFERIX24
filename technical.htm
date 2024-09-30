@@ -12,305 +12,265 @@
     <style>
     
       :root {
-          --card-height: 40vw;
-          --card-margin: 4vw;
-          --card-top-offset: 1em;
-          --numcards: 4;
-          --outline-width: 0px;
-        }
-
-        #cards {
-          padding-bottom: calc(
-            var(--numcards) * var(--card-top-offset)
-          ); /* Make place at bottom, as items will slide to that position*/
-          margin-bottom: var(
-            --card-margin
-          ); /* Don't include the --card-margin in padding, as that will affect the scroll-timeline*/
-        }
-
-        .card {
-          position: sticky;
-          top: 0;
-          padding-top: var(--card-top-offset);
-          transform-origin: 50% 0%;
-          will-change: transform;
-        }
-
-        /** DEBUG **/
-
-        #debug {
-          position: fixed;
-          top: 1em;
-          left: 1em;
-        }
-        #debug::after {
-          content: " Show Debug";
-          margin-left: 1.5em;
-          color: white;
-          white-space: nowrap;
-        }
-
-        #debug:checked ~ main {
-          --outline-width: 1px;
-        }
-
-        /** PAGE STYLING **/
-
-        * {
-          /* Poor Man's Reset */
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-          font-family: 'Raleway', sans-serif;
-
-        }
-
-        body {
-          background: #040548;
-          color: rgb(255, 255, 255);
-          text-align: center;
-          font-size: calc(1em + 0.5vw);
-        }
-
-        header,
-        main {
-          width: 80vw;
-          margin: 0 auto;
-        }
-
-        header {
-          height: 100vh;
-          display: grid;
-          place-items: center;
-        }
-
-        #cards {
-          list-style: none;
-          outline: calc(var(--outline-width) * 10) solid blue;
-
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: repeat(var(--numcards), var(--card-height));
-          gap: var(--card-margin);
-        }
-
-        .card {
-          outline: var(--outline-width) solid hotpink;
-        }
-
-        .card__content {
-          box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
-          background: rgb(255, 255, 255);
-          color: rgb(10, 5, 7);
-          border-radius: 1em;
-          overflow: hidden;
-
-          display: grid;
-          grid-template-areas: "text img";
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto;
-
-          align-items: stretch;
-          outline: var(--outline-width) solid lime;
-        }
-
-        .card__content > div {
-          grid-area: text;
-          width: 80%;
-          place-self: center;
-          text-align: left;
-
-          display: grid;
-          gap: 1em;
-          place-items: start;
-        }
-
-        .card__content > figure {
-          grid-area: img;
-          overflow: hidden;
-        }
-
-        .card__content > figure > img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        h1 {
-          font-family: "Russo One", sans-serif;
-          font-weight: 300;
-          font-size: 3.5em;
-        }
-
-        h2 {
-          font-family: "Russo One", sans-serif;
-          font-weight: 300;
-          font-size: 2.5em;
-        }
-
-        p {
-          font-family: 'Raleway', sans-serif;
-          font-family: sans-serif;
-          font-weight: 300;
-          line-height: 1.42;
-        }
-
-        .btn {
-          background: rgb(188 87 36);
-          color: rgb(255 255 255);
-          text-decoration: none;
-          display: inline-block;
-          padding: 0.5em;
-          border-radius: 0.25em;
-        }
-
-        aside {
-          width: 50vw;
-          margin: 0 auto;
-          text-align: left;
-        }
-
-        aside p {
-          margin-bottom: 1em;
-        }
-
-      #logo_image{
-        position: relative;
-          left:-45px;
-          height:300px
-        }
-        
-        a {
-          color: #FFFFFF;
-          text-decoration: none;
-        }
-
-.primary-btn {
-  background-image: -moz-linear-gradient(0deg, #235ee7 0%, #4ae7fa 100%);
-  background-image: -webkit-linear-gradient(0deg, #235ee7 0%, #4ae7fa 100%);
-  background-image: -ms-linear-gradient(0deg, #235ee7 0%, #4ae7fa 100%);
-}
-
-.primary-btn {
-  line-height: 36px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 25px;
-  border: none;
-  color: #fff;
-  display: inline-block;
-  font-weight: 500;
-  position: relative;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  text-transform: uppercase;
-  position: relative;
-}
-
-.primary-btn {
-  color: #fff;
-  border: 1px solid #fff;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-.primary-btn:hover {
-  background: transparent;
-  color: #235ee7;
-  border-color: #235ee7;
-}
-
-@media (max-width: 500px) {
-  /* Adjust header styles for smaller screens */
-  header {
-    text-align: center;
-  }
-
-  #logo_image {
-    left: 0;
-    margin: 0 auto;
-    height: 150px; /* Adjust logo height */
-  }
-
-  /* Adjust card layout for smaller screens */
-  #cards {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--numcards), auto); /* Change height to auto */
-    gap: 20px; /* Adjust gap between cards */
-  }
-
-  .card__content {
-    display: block; /* Change to block layout */
-    text-align: center;
-    padding: 1em;
-  }
-
-  .card__content > div {
-    width: 100%; /* Take full width */
-    text-align: center;
-    padding: 1em;
-  }
-
-  .card__content > figure {
-    display: none; /* Hide the image */
-  }
-
-  h1 {
-    font-size: 2em; /* Adjust font size */
-  }
-
-  h2 {
-    font-size: 1.5em; /* Adjust font size */
-  }
-
-  p {
-    font-size: 1em; /* Adjust font size */
-  }
-  .fancybox-slide {
-    max-width: 90%; /* Limit width of the lightbox content */
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center; /* Center align the content */
-  }
-
-  .fancybox-slide img {
-  /** Ensure images fit within the lightbox content */
-
- /* Remove any potential white space below the image */
-    margin: 0 auto; /* Center the image horizontally */
-  }
-
-  .fancybox-content {
-    max-width: 100%; /* Make sure content within the lightbox fits */
-  }
-  .card__content > figure {
-    display: block; /* Display the image */
-  }
-  .card__content > div {
-    /* Other styles... */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+        --card-height: 40vw;
+        --card-margin: 4vw;
+        --card-top-offset: 1em;
+        --numcards: 4;
+        --outline-width: 0px;
+    }
+    
+    #cards {
+        padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+        margin-bottom: var(--card-margin);
+    }
+    
+    .card {
+        position: sticky;
+        top: 0;
+        padding-top: var(--card-top-offset);
+        transform-origin: 50% 0%;
+        will-change: transform;
+    }
+    
+    #debug {
+        position: fixed;
+        top: 1em;
+        left: 1em;
+    }
+    #debug::after {
+        content: " Show Debug";
+        margin-left: 1.5em;
+        color: white;
+        white-space: nowrap;
+    }
+    
+    #debug:checked ~ main {
+        --outline-width: 1px;
+    }
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(0deg, #000000 75%, #ffffff 100%); /* white to black gradient */
+      color: #000000; /* Text color remains white */
+      text-align: center;
+      font-size: calc(1em + 0.5vw);
   }
   
-  /* Center-align the brochure buttons */
-  .card__content > div .btn {
-    margin-top: 10px; /* Add some spacing above the button */
-  }
-}
+    
+    header,
+    main {
+        width: 80vw;
+        margin: 0 auto;
+    }
+    
+    header {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+    
+    #cards {
+        list-style: none;
+        outline: calc(var(--outline-width) * 10) solid red; /* Changed to red */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(var(--numcards), var(--card-height));
+        gap: var(--card-margin);
+    }
+    
+    .card {
+        outline: var(--outline-width) solid red; /* Changed to red */
+    }
+    
+    .card__content {
+        box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+        background: #ffffff; /* White background */
+        color: #000000; /* Black text */
+        border-radius: 1em;
+        overflow: hidden;
+        display: grid;
+        grid-template-areas: "text img";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        align-items: stretch;
+        outline: var(--outline-width) solid red; /* Changed to red */
+    }
+    
+    .card__content > div {
+        grid-area: text;
+        width: 80%;
+        place-self: center;
+        text-align: left;
+        display: grid;
+        gap: 1em;
+        place-items: start;
+    }
+    
+    .card__content > figure {
+        grid-area: img;
+        overflow: hidden;
+    }
+    
+    .card__content > figure > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    h1 {
+        font-family: "Russo One", sans-serif;
+        font-weight: 300;
+        font-size: 3.5em;
+    }
+    
+    h2 {
+        font-family: "Russo One", sans-serif;
+        font-weight: 300;
+        font-size: 2.5em;
+    }
+    
+    p {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+        line-height: 1.42;
+    }
+    
+    .btn {
+        background: #ff0000; /* Changed to red */
+        color: #ffffff; /* White text */
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5em;
+        border-radius: 0.25em;
+    }
+    
+    aside {
+        width: 50vw;
+        margin: 0 auto;
+        text-align: left;
+    }
+    
+    aside p {
+        margin-bottom: 1em;
+    }
+    
+    #logo_image {
+        position: relative;
+        left: -45px;
+        height: 300px;
+    }
+    
+    a {
+        color: #ffffff; /* White text */
+        text-decoration: none;
+    }
+    
+    .primary-btn {
+        background-image: -moz-linear-gradient(0deg, #ff0000 0%, #000000 100%); /* Red to Black */
+        background-image: -webkit-linear-gradient(0deg, #ff0000 0%, #000000 100%);
+        background-image: -ms-linear-gradient(0deg, #ff0000 0%, #000000 100%);
+        color: #ffffff; /* White text */
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .primary-btn:hover {
+        background: transparent;
+        color: #ff0000; /* Red on hover */
+        border: 1px solid #ff0000; /* Red border */
+    }
+    
+    @media (max-width: 500px) {
+        header {
+            text-align: center;
+        }
+    
+        #logo_image {
+            left: 0;
+            margin: 0 auto;
+            height: 150px;
+        }
+    
+        #cards {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(var(--numcards), auto);
+            gap: 20px;
+        }
+    
+        .card__content {
+            display: block;
+            text-align: center;
+            padding: 1em;
+        }
+    
+        .card__content > div {
+            width: 100%;
+            text-align: center;
+            padding: 1em;
+        }
+    
+        .card__content > figure {
+            display: none;
+        }
+    
+        h1 {
+            font-size: 2em;
+        }
+    
+        h2 {
+            font-size: 1.5em;
+        }
+    
+        p {
+            font-size: 1em;
+        }
+    
+        .fancybox-slide {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        .fancybox-slide img {
+            margin: 0 auto;
+        }
+    
+        .fancybox-content {
+            max-width: 100%;
+        }
+    
+        .card__content > figure {
+            display: block;
+        }
+    
+        .card__content > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .card__content > div .btn {
+            margin-top: 10px;
+        }
+    }
+    
       </style>
   </head>
   <body>
     <header>
       <div>
-        <img src="images/logo_org.png" alt="" id="logo_image" >
+        <img src="images/Frame_1__1_-removebg-preview.png" alt="" id="logo_image" >
         <h1>Technical Events</h1>
         <p>👇 Scroll down to see the Events.</p>
       </div>
@@ -335,8 +295,10 @@
         <li class="card" id="card_3">
           <div class="card__content">
             <div>
-              <h2>SLIDE_FEST</h2>
-              <p>Join us for an engaging paper presentation session where college students will showcase their technical prowess. Explore innovative ideas, cutting-edge research, and insightful findings presented by the brightest minds in the field</p>
+              <h2> SLIDESCAPE
+              </h2>
+              <p>SLIDESCAPE (Paper Presentation) offers an excellent platform for students to present their original research and insights in the fields of Artificial Intelligence, Data Science and Machine Learning. 
+              </p>
               <a data-fancybox="gallery" class="btn btn--accent" href="InsightX_pics/technicalposters/slidefest.png">BROCHURE</a>
             </div>
             <figure>
@@ -350,8 +312,9 @@
         <li class="card" id="card_4">
           <div class="card__content">
             <div>
-              <h2>DATACON</h2>
-              <p> Join us for an exciting showcase of creativity and ingenuity at our Project Presentation Event. College students from various disciplines will be presenting their innovative projects, demonstrating their problem-solving skills and forward-thinking ideas.</p>
+              <h2>TECH HORIZON</h2>
+              <p> TECH HORIZON (Project Presentation) offers a platform for innovative thinkers and problem-solvers to showcase their cutting-edge projects that leverage the power of Artificial Intelligence, Data Science and Machine Learning.
+              </p>
               <a data-fancybox="gallery" class="btn btn--accent" href="InsightX_pics/technicalposters/datacon.png">BROCHURE</a>
             </div>
             <figure>
@@ -365,8 +328,9 @@
         <li class="card" id="card_1">
           <div class="card__content">
             <div>
-              <h2>CODING BATTLE</h2>
-              <p> Get ready for an innovative coding contest. Guess how to solve programming questions just by looking at the input and output samples. The fastest brains win.</p>
+              <h2>CODEMATRIX</h2>
+              <p> This event challenges tech enthusiasts to showcase their coding and problem-solving skills under time pressure. Participants will tackle complex problems, combining speed and precision to excel in a competitive environment.
+              </p>
               <a data-fancybox="gallery" class="btn btn--accent" href="InsightX_pics/technicalposters/codingbattle.png">BROCHURE</a>
             </div>
             <figure>
@@ -380,8 +344,10 @@
         <li class="card" id="card_1">
           <div class="card__content">
             <div>
-              <h2>AI ESCAPE ROOM</h2>
-              <p> The Escape Room Challenge is an immersive and interactive event that combines the thrill of solving puzzles with the excitement of exploring AI concepts.</p>
+              <h2>GLITCH HUNT
+              </h2>
+              <p> GLITCH HUNT (Code Debugging) is designed to test participants ability to identify, analyze, and fix errors in code under time pressure.
+              </p>
               <a data-fancybox="gallery" class="btn btn--accent" href="InsightX_pics/technicalposters/aiescape_room.png">BROCHURE</a>
             </div>
             <figure>
