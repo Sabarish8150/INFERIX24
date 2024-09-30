@@ -93,31 +93,33 @@
 }
 
 const phrases = [
-    'Welcome',
-    'Bannari Amman Institute Of Technology',
-    "Proudly Presents You",
-    'INFERIX 24',
-  ];
+  'Welcome',
+  'Bannari Amman Institute Of Technology',
+  "Proudly Presents You",
+  'INFERIX 24',
+];
 
-  const el = document.querySelector('.text');
-  const fx = new TextScramble(el);
+const el = document.querySelector('.text');
+const fx = new TextScramble(el);
 
-  let counter = 0;
-  const next = () => {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800);
-      counter = (counter + 1) % phrases.length;
+let counter = 0;
+const next = () => {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(next, 800);
+    counter = (counter + 1) % phrases.length;
 
-      if (phrases[counter] === 'INFERIX 24') {
-        setTimeout(() => {
-          // Redirect to another page after "INSIGHT_X" animation
-          window.location.href = '/home.htm';
-        }, 2000); // Adjust the delay (in milliseconds) before redirection
-      }
-    });
-  };
+    if (phrases[counter] === 'INFERIX 24') {
+      setTimeout(() => {
+        // Dynamically build the path for GitHub Pages deployment
+        const basePath = window.location.pathname.replace(/\/[^\/]*$/, '');
+        window.location.href = `/home.htm`;
+      }, 2000); // Adjust the delay (in milliseconds) before redirection
+    }
+  });
+};
 
-  next();
+next();
+
 
 </script>
 </html>
