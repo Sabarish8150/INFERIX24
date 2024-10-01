@@ -170,7 +170,7 @@
                     <div class="home__data"> 
                       <!-- <h1 class="home__title">INFIRIX  24</h1> -->
                       <!-- <p class="home__description">BIT proudly presents!</p> -->
-                     <h1 style="font-size: 70px;color: rgb(0, 0, 0); "> <div class="anaglyphic" title="INSIGHT "> INFERIX 24 <span style="color:#000000">X</span></div> </h1> 
+                     <h1 style="font-size: 70px;color: rgb(0, 0, 0); "> <div class="anaglyphic" title="INSIGHT "> INFERIX 24 <span style="color:#000000"></span></div> </h1> 
                       <p class="home__description">A Event Conducted by Department of Artificial Intelligence and Data Science <br> & Artificial Intelligence and machine learning of
                         Bannari Amman Institute Of Technology <br><strong>Heartly Welcomes you to Join us!</strong></p>
                       <h5> Scroll Down To view More</h5>
@@ -434,7 +434,42 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="flip-card-container" style="--hue: 170">
+          <div class="flip-card">
+        
+            <div class="card-front">
+              <figure>
+                <!-- <div class="img-bg"></div> -->
+                <img src="Cards_images/HACK_BACK.png">
+                <figcaption>WORKSHOP</figcaption>
+              </figure>
+        
+            </div>
+        
+            <div class="card-back">
+              <figure>
+                <!-- <div class="img-bg"></div> -->
+                <img src="Cards_images/tech_back.png" alt="image-2">
+              </figure>
+        
+              <button  style="position: relative; top:-15px"  onclick="workshop_redirect()">Click to know more ...</button>
+        
+              <div class="design-container">
+                <span class="design design--1"></span>
+                <span class="design design--2"></span>
+                <span class="design design--3"></span>
+                <span class="design design--4"></span>
+                <span class="design design--5"></span>
+                <span class="design design--6"></span>
+                <span class="design design--7"></span>
+                <span class="design design--8"></span>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+        <!-- <div class="col-lg-4"> -->
           <!-- <div class="pricing-item-regular">
             <span class="price">$66</span>
             <h4>Premium Plan App</h4>
@@ -453,7 +488,7 @@
               <a href="#">Purchase This Plan Now</a>
             </div>
           </div> -->
-          <div class="flip-card-container" style="--hue: 350">
+          <!-- <div class="flip-card-container" style="--hue: 350">
             <div class="flip-card">
           
               <div class="card-front">
@@ -468,7 +503,7 @@
                 only if the image is necessary
                 <figure>
                   <div class="img-bg"></div>
-                  <img src="InsightX_pics/technicalposters/Workshop.png" alt="Brohm Lake">
+                  <img src="./Cards_images/tech_back.png" alt="Brohm Lake">
                 </figure>
           
                 <button  style="position: relative; top:-15px"  onclick="hackathon_redirect()" >Click to know more ...</button>
@@ -487,7 +522,7 @@
               </div>
           
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -530,13 +565,13 @@
           <div  class="footer-widget">
             <h4 style="color: #FF007B;">Contact Us</h4>
             <h4>Faculty Co-ordinators</h4>
-            <p>Rajkumar V S</p>
-            <p>Chozarajan P</p>
-            <p>Nithin</p>
-            <p>Satheesh kumar</p>
+            <p>Mr. Rajkumar V S</p>
+            <p>Mr. Chozharajan P</p>
+            <p>Mr. Nithin P</p>
+            <p>Mr. Satheesh kumar K</p>
             <h4>Student Co-ordinators</h4>
-            <p>  - <a href="tel:+919345817473"> </a></p> 
-            <p>   - <a href="tel:+918124438168"> </a></p>
+            <p>  MANI SHANKAR G <br><a href="tel:+6374052177"> 96005 81076 </a></p> 
+            <p>  RENITA HELAN E <br> <a href="tel:+6374052177"> 6374052177</a></p>
             <!-- <p><a href="#">010-020-0340</a></p>
             <p><a href="#">info@company.co</a></p> -->
           </div>
@@ -603,10 +638,11 @@
         </div>
         <div class="col-lg-12">
           <div class="copyright-text">
-            <p style="font-family: Courier New, Courier, monospace;">Copyright © InsightX'23. All Rights Reserved. 
+            <p style="font-family: Courier New, Courier, monospace;">Copyright © Inferix'24. All Rights Reserved. 
           <br>Developed by: <br>
           Sumugan P N & Harishh A
-          <br>updated by: <br> </p>
+          <br>updated by: <br>
+        SABARISH K S </p>
           </p>
           </div>
         </div>
@@ -634,6 +670,10 @@
     function non_Technical_redirect() {
       window.location.href =
         "./non_technical.htm";
+    }
+    function workshop_redirect() {
+      window.location.href =
+        "./workshop.html";
     }
 
     function hackathon_redirect() {
